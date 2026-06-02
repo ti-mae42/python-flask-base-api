@@ -1,13 +1,17 @@
 # Base API
 
-Reusable Flask API template for starting new service projects. It provides a
-small generic shell with Flask-RESTful routing, configuration loading,
-request/response helpers, security primitives, SQLAlchemy and Alembic
-foundation, optional Celery worker setup, and optional AWS adapters.
+Reusable Flask API template for starting RESTful JSON service projects. It
+provides a small generic shell with Flask-RESTful routing, camelCase JSON
+request/response helpers, configuration loading, security primitives,
+SQLAlchemy and Alembic foundation, optional Celery worker setup, and optional
+AWS adapters.
 
 The template is intentionally business-domain free. New projects should add
 their own domain modules, repositories, resources, schemas, validators, and
 migrations after the scaffold step.
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the layered design, component
+responsibilities, and fit guidance.
 
 ## Included
 
