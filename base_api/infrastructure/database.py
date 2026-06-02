@@ -18,6 +18,8 @@ def register_orm(web_app):
 
 
 def register_migration(web_app):
+    # Update the line below for the migrate command to work.
+    # from base_api.repositories import your_repositories_module  # noqa: F401
     return Migrate(web_app, orm)
 
 

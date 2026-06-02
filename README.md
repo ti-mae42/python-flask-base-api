@@ -85,6 +85,17 @@ pytest tests/ -v
 
 ### Migrations
 
+Flask-Migrate needs the repository modules that define SQLAlchemy models to be
+imported before it can autogenerate migrations. When you add project
+repositories, update `base_api/infrastructure/database.py`:
+
+```python
+def register_migration(web_app):
+    # Update the line below for the migrate command to work.
+    # from base_api.repositories import your_repositories_module  # noqa: F401
+    return Migrate(web_app, orm)
+```
+
 ```bash
 flask --app base_api.initialize:web_app db migrate -m "description"
 flask --app base_api.initialize:web_app db upgrade
