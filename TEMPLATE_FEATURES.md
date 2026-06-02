@@ -3,9 +3,11 @@
 This file documents optional template boundaries for a future scaffold CLI. The
 default template currently keeps all listed features enabled.
 
-## PostgreSQL Database Support
+## Database Support
 
-Feature marker: `BASE_API_OPTIONAL: postgresql`
+Feature marker: `BASE_API_OPTIONAL: database`
+
+Supported scaffold values: `postgresql`, `mysql`, and `none`.
 
 Files involved:
 
@@ -35,6 +37,7 @@ Dependencies involved:
 - `Flask-Migrate`
 - `alembic`
 - `psycopg2-binary`
+- `PyMySQL`
 
 When disabled:
 
@@ -46,9 +49,21 @@ When disabled:
 - Remove database dependencies from `pyproject.toml`.
 - Replace database-backed tests with app-only tests.
 
-When enabled:
+When enabled with PostgreSQL:
 
-- Keep `DATABASE_URL` configured.
+- Keep `DATABASE_URL` configured with a `postgresql+psycopg2://` URL.
+- Keep `psycopg2-binary`.
+- Remove MySQL-only driver dependencies.
+- Keep database registration and migration registration in `create_app`.
+- Keep Alembic migration scaffolding.
+- Keep repository base classes available for generated domain modules.
+- Generate or keep migration versions only for concrete tables added by the scaffolded application.
+
+When enabled with MySQL:
+
+- Keep `DATABASE_URL` configured with a `mysql+pymysql://` URL.
+- Keep `PyMySQL`.
+- Remove PostgreSQL-only driver dependencies.
 - Keep database registration and migration registration in `create_app`.
 - Keep Alembic migration scaffolding.
 - Keep repository base classes available for generated domain modules.

@@ -1,6 +1,6 @@
 from __future__ import with_statement
 
-# BASE_API_OPTIONAL: postgresql
+# BASE_API_OPTIONAL: database
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# BASE_API_OPTIONAL: postgresql
+# BASE_API_OPTIONAL: database
 
 import datetime
 

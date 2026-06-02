@@ -6,7 +6,7 @@ from base_api.infrastructure import database
 
 def test_create_app_registers_empty_api_shell(app):
     assert app.config['TESTING'] is True
-    # BASE_API_OPTIONAL: postgresql
+    # BASE_API_OPTIONAL: database
     assert database.orm is not None
 
 

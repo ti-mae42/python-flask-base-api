@@ -27,7 +27,7 @@ class Config(object):
         self.COOKIE_TOKEN = os.environ.get('COOKIE_TOKEN')
         self.COOKIE_USER = os.environ.get('COOKIE_USER')
         self.COOKIE_DOMAIN = os.environ.get('COOKIE_DOMAIN')
-        # BASE_API_OPTIONAL: postgresql
+        # BASE_API_OPTIONAL: database
         self.SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
         # BASE_API_OPTIONAL: celery
         self.REDIS_URL = os.environ.get('REDIS_URL')

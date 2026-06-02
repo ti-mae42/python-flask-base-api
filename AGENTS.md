@@ -66,7 +66,7 @@ flask --app base_api.initialize:web_app run
 celery -A base_api.initialize:celery_app worker
 
 # Database migrations
-# BASE_API_OPTIONAL: postgresql
+# BASE_API_OPTIONAL: database
 flask --app base_api.initialize:web_app db migrate -m "description"
 flask --app base_api.initialize:web_app db upgrade
 
@@ -85,6 +85,11 @@ Required generic variables:
 - `API_TOKEN`
 - `API_TOKEN_HEADER`
 - `DATABASE_URL`
+
+Supported database URL examples:
+
+- PostgreSQL: `postgresql+psycopg2://user:pass@host/dbname`
+- MySQL: `mysql+pymysql://user:pass@host/dbname`
 
 Optional generic variables:
 

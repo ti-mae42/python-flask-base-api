@@ -25,7 +25,7 @@ from base_api.infrastructure.database import orm  # noqa: E402
 @pytest.fixture(scope='session')
 def app():
     assert web_app.config['TESTING'] is True, 'App is not in TESTING mode; refusing to run'
-    # BASE_API_OPTIONAL: postgresql
+    # BASE_API_OPTIONAL: database
     with web_app.app_context():
         orm.drop_all()
         orm.create_all()

@@ -1,6 +1,6 @@
 """${message}
 
-BASE_API_OPTIONAL: postgresql
+BASE_API_OPTIONAL: database
 
 Revision ID: ${up_revision}
 Revises: ${down_revision | comma,n}

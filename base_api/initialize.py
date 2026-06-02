@@ -15,7 +15,7 @@ def create_app(config_object=None):
     else:
         app.config.from_object(config_object or config)
 
-    # BASE_API_OPTIONAL: postgresql
+    # BASE_API_OPTIONAL: database
     database.register_orm(app)
     database.register_migration(app)
     apm.create_monitor(app)

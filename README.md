@@ -15,7 +15,7 @@ migrations after the scaffold step.
 - Healthcheck endpoint at `/api/healthcheck`.
 - Generic API resource, schema, and validator bases.
 - Generic domain entity and repository bases.
-- Optional PostgreSQL database support with Flask-SQLAlchemy and Flask-Migrate.
+- Optional PostgreSQL or MySQL database support with Flask-SQLAlchemy and Flask-Migrate.
 - Optional Celery worker foundation.
 - Optional AWS adapter foundation.
 - Generic password, JWT, and API-token security helpers.
@@ -52,6 +52,13 @@ Create a local `.env` from `.env.sample` and replace placeholder values.
 
 ```bash
 cp .env.sample .env
+```
+
+Use a SQLAlchemy-compatible database URL. Examples:
+
+```env
+DATABASE_URL=postgresql+psycopg2://user:pass@host/dbname
+DATABASE_URL=mysql+pymysql://user:pass@host/dbname
 ```
 
 ### Run the API
