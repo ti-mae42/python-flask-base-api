@@ -11,6 +11,7 @@ from base_api.infrastructure import apm
 
 
 class ResourceBase(Resource):
+    entity = None
     schema: schemas.SchemaBase = None
     create_validator = None
     update_validator = None
@@ -18,6 +19,16 @@ class ResourceBase(Resource):
     def __init__(self):
         self.__payload = None
         self.__valid_payload = None
+        self.me = getattr(self, 'me', None)
+        if self.entity is None:
+            return
+        if self.me is None and self.logged_user is not None:
+            self.me = self.entity.create_with_logged(self.logged_user)
+        if self.me is None:
+            try:
+                self.me = self.entity.create()
+            except AttributeError:
+                self.me = None
 
     @staticmethod
     def camel_to_snake(name):
